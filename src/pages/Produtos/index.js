@@ -26,13 +26,13 @@ function Produtos() {
           <Card
             fristImg={Relogio}
             title="Mi Band 4"
-            subTitle="R$ 150,00"
+            subTitle={150}
             icon={Proximo}
           />
           <Card
             fristImg={Relogio}
             title="Mi Band 5"
-            subTitle="R$ 350,00"
+            subTitle={350}
             icon={Proximo}
           />
         </ScrollView>

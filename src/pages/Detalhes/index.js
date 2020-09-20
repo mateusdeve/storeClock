@@ -9,7 +9,7 @@ import Relogio from '../../assets/img/relogio.png';
 
 import Home from '../../assets/img/home.png';
 import IconAdd from '../../assets/img/buttonAdd.png';
-import IconPulseira from '../../assets/img/pulseira.png';
+import Loupe from '../../assets/img/loupe.png';
 
 import Menu from '../../components/Menu';
 import {RectButton} from 'react-native-gesture-handler';
@@ -39,7 +39,7 @@ const Detalhes = () => {
               <Image source={IconAdd} />
             </RectButton>
             <RectButton>
-              <Image source={IconPulseira} />
+              <Image source={Loupe} />
             </RectButton>
           </View>
         </View>

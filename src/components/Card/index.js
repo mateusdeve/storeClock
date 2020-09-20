@@ -11,6 +11,11 @@ const Card = (props) => {
   function handleNavigation() {
     navigate('Detalhes');
   }
+
+  var valorFormatado = props.subTitle.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
   return (
     <>
       <View style={styles.container}>
@@ -20,7 +25,7 @@ const Card = (props) => {
           </View>
           <View style={{marginLeft: 20}}>
             <Text style={styles.titleCard}>{props.title}</Text>
-            <Text style={styles.subTitleCard}>{props.subTitle}</Text>
+            <Text style={styles.subTitleCard}>R$ {valorFormatado}</Text>
           </View>
           <View style={styles.buttonCard}>
             <RectButton onPress={handleNavigation}>
