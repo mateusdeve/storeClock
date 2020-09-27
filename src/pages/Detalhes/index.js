@@ -14,7 +14,21 @@ import Loupe from '../../assets/img/loupe.png';
 import Menu from '../../components/Menu';
 import {RectButton} from 'react-native-gesture-handler';
 
-const Detalhes = () => {
+import {GlobalContext} from '../../GlobalContext';
+
+const Detalhes = ({route}) => {
+  const global = React.useContext(GlobalContext);
+  const {title} = route.params;
+  const {subTitle} = route.params;
+
+  const produto = {
+    title: route.params.title,
+    valor: route.params.subTitle,
+  };
+  function handleAddArrayProdutos() {
+    global.produtos.push(produto);
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground source={ProdutosBg} style={styles.content}>
@@ -25,8 +39,8 @@ const Detalhes = () => {
         />
         <View style={styles.body}>
           <View style={styles.groupTitle}>
-            <Text style={styles.bodyTitulo}>Mi Band 5</Text>
-            <Text style={styles.bodySubTitulo}>Xiaomi</Text>
+            <Text style={styles.bodyTitulo}>{title}</Text>
+            <Text style={styles.bodySubTitulo}>R$ {subTitle}</Text>
           </View>
           <View style={styles.viewImg}>
             <Image style={styles.imgRelogio} source={Relogio} />
@@ -35,7 +49,9 @@ const Detalhes = () => {
             <RectButton>
               <Image source={Home} />
             </RectButton>
-            <RectButton style={styles.buttonAdd}>
+            <RectButton
+              onPress={handleAddArrayProdutos}
+              style={styles.buttonAdd}>
               <Image source={IconAdd} />
             </RectButton>
             <RectButton>

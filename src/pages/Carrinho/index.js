@@ -6,37 +6,23 @@ import IconBack from '../../assets/img/previous.png';
 import homeRun from '../../assets/img/home-run.png';
 import {View, ImageBackground, ScrollView, Text} from 'react-native';
 import Menu from '../../components/Menu';
-import Card from '../../components/Card';
+import CardCarrinho from '../../components/CardCarrinho';
 import Relogio from '../../assets/img/relogio.png';
-import LoupeRoxa from '../../assets/img/loupeRoxa.png';
+import Cancel from '../../assets/img/cancel.png';
+
+import {GlobalContext} from '../../GlobalContext';
 
 const Carrinho = () => {
+  const global = React.useContext(GlobalContext);
+
   const [valorTotal, setValorTotal] = React.useState(0);
   const [itens, setItens] = React.useState(0);
 
-  const produtos = [
-    {
-      id: 1,
-      title: 'Mi Band 4',
-      valor: 150,
-    },
-    {
-      id: 2,
-      title: 'Mi Band 5',
-      valor: 350,
-    },
-    {
-      id: 3,
-      title: 'Mi Band 5',
-      valor: 350,
-    },
-  ];
-
-  const result = produtos.reduce((cont, arr) => {
+  const result = global.produtos.reduce((cont, arr) => {
     return cont + arr.valor;
   }, 0);
 
-  const item = produtos.length;
+  const item = global.produtos.length;
 
   React.useEffect(() => {
     setValorTotal(result);
@@ -52,14 +38,15 @@ const Carrinho = () => {
           nameNavigateSecondImg="Home"
         />
         <ScrollView style={{minHeight: 630}}>
-          {produtos.map((produto) => {
+          {global.produtos === '' ? <Text>Carrinho Vazio</Text> : null}
+          {global.produtos.map((produto, index) => {
             return (
-              <Card
-                key={produto.id}
+              <CardCarrinho
+                key={index}
                 fristImg={Relogio}
                 title={produto.title}
                 subTitle={produto.valor}
-                icon={LoupeRoxa}
+                icon={Cancel}
               />
             );
           })}

@@ -1,11 +1,23 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, View, Text} from 'react-native';
 import styles from './styles';
 
 import {RectButton} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
+import {GlobalContext} from '../../GlobalContext';
+import supermarket from '../../assets/img/supermarket.png';
 
 const Menu = (props) => {
+  const global = React.useContext(GlobalContext);
+  const [item, setItem] = React.useState(0);
+
+  const result = global.produtos;
+  console.log(result);
+
+  React.useEffect(() => {
+    setItem(result.length);
+  }, [result]);
+
   const {goBack} = useNavigation();
   const {navigate} = useNavigation();
 
@@ -22,9 +34,16 @@ const Menu = (props) => {
       <RectButton style={styles.buttonIcon} onPress={handleNavigationBack}>
         <Image source={props.fristImg} />
       </RectButton>
-      <RectButton style={styles.buttonIcon} onPress={handleNavigate}>
-        <Image source={props.secondImg} />
-      </RectButton>
+      {props.secondImg == supermarket ? (
+        <RectButton style={styles.buttonIconCarrinho} onPress={handleNavigate}>
+          <Text>{global.produtos.length}</Text>
+          <Image source={props.secondImg} />
+        </RectButton>
+      ) : (
+        <RectButton style={styles.buttonIcon} onPress={handleNavigate}>
+          <Image source={props.secondImg} />
+        </RectButton>
+      )}
     </View>
   );
 };

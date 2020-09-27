@@ -2,18 +2,11 @@ import React from 'react';
 import {Text, Image, View} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 
-import {useNavigation} from '@react-navigation/native';
+import {GlobalContext} from '../../GlobalContext';
 
 import styles from './styles';
-const Card = (props) => {
-  const {navigate} = useNavigation();
-
-  function handleNavigation() {
-    navigate('Detalhes', {
-      title: props.title,
-      subTitle: props.subTitle,
-    });
-  }
+const CardCarrinho = (props) => {
+  const global = React.useContext(GlobalContext);
 
   var valorFormatado = props.subTitle.toLocaleString('pt-BR', {
     style: 'currency',
@@ -31,7 +24,7 @@ const Card = (props) => {
             <Text style={styles.subTitleCard}>R$ {valorFormatado}</Text>
           </View>
           <View style={styles.buttonCard}>
-            <RectButton onPress={handleNavigation}>
+            <RectButton>
               <Image source={props.icon} style={styles.imgButtonCard} />
             </RectButton>
           </View>
@@ -41,4 +34,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default CardCarrinho;

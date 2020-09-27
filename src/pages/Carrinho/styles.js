@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
 
   groupTotal: {
     paddingLeft: 50,
+    marginBottom: 40,
   },
 
   totalText: {
