@@ -17,16 +17,18 @@ import {RectButton} from 'react-native-gesture-handler';
 import {GlobalContext} from '../../GlobalContext';
 
 const Detalhes = ({route}) => {
-  const global = React.useContext(GlobalContext);
+  const {add} = React.useContext(GlobalContext);
   const {title} = route.params;
   const {subTitle} = route.params;
 
   const produto = {
+    id: route.params.id,
     title: route.params.title,
     valor: route.params.subTitle,
   };
+
   function handleAddArrayProdutos() {
-    global.produtos.push(produto);
+    add(produto);
   }
 
   return (

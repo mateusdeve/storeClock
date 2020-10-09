@@ -12,11 +12,16 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 
+  viewLogo: {
+    alignContent: 'center',
+    alignItems: 'center',
+  },
+
   logo: {
-    width: 110,
+    width: 180,
     height: 50,
-    marginTop: 100,
-    marginLeft: 50,
+    marginTop: 80,
+    justifyContent: 'center',
   },
 
   viewTitle: {

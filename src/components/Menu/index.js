@@ -12,8 +12,6 @@ const Menu = (props) => {
   const [item, setItem] = React.useState(0);
 
   const result = global.produtos;
-  console.log(result);
-
   React.useEffect(() => {
     setItem(result.length);
   }, [result]);
@@ -34,9 +32,9 @@ const Menu = (props) => {
       <RectButton style={styles.buttonIcon} onPress={handleNavigationBack}>
         <Image source={props.fristImg} />
       </RectButton>
-      {props.secondImg == supermarket ? (
+      {props.secondImg === supermarket ? (
         <RectButton style={styles.buttonIconCarrinho} onPress={handleNavigate}>
-          <Text>{global.produtos.length}</Text>
+          <Text>{Object.keys(global.produtos).length}</Text>
           <Image source={props.secondImg} />
         </RectButton>
       ) : (

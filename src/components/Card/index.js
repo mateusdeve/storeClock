@@ -10,6 +10,7 @@ const Card = (props) => {
 
   function handleNavigation() {
     navigate('Detalhes', {
+      id: props.id,
       title: props.title,
       subTitle: props.subTitle,
     });

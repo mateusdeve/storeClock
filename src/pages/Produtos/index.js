@@ -14,6 +14,23 @@ import Card from '../../components/Card';
 import styles from './styles';
 
 function Produtos() {
+  const produtos = [
+    {
+      id: 1,
+      image: Relogio,
+      title: 'Mi Band 4',
+      valor: 150,
+      icone: Proximo,
+    },
+    {
+      id: 2,
+      image: Relogio,
+      title: 'Mi Band 5',
+      valor: 350,
+      icone: Proximo,
+    },
+  ];
+
   return (
     <View style={styles.container}>
       <ImageBackground source={ProdutosBg} style={styles.content}>
@@ -23,18 +40,16 @@ function Produtos() {
           nameNavigateSecondImg="Carrinho"
         />
         <ScrollView style={{minHeight: 630}}>
-          <Card
-            fristImg={Relogio}
-            title="Mi Band 4"
-            subTitle={150}
-            icon={Proximo}
-          />
-          <Card
-            fristImg={Relogio}
-            title="Mi Band 5"
-            subTitle={350}
-            icon={Proximo}
-          />
+          {produtos.map((item) => (
+            <Card
+              id={item.id}
+              key={item.id}
+              fristImg={item.image}
+              title={item.title}
+              subTitle={item.valor}
+              icon={item.icone}
+            />
+          ))}
         </ScrollView>
       </ImageBackground>
     </View>

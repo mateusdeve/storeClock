@@ -6,12 +6,17 @@ import {GlobalContext} from '../../GlobalContext';
 
 import styles from './styles';
 const CardCarrinho = (props) => {
-  const global = React.useContext(GlobalContext);
+  const {remove} = React.useContext(GlobalContext);
 
   var valorFormatado = props.subTitle.toLocaleString('pt-BR', {
     style: 'currency',
     currency: 'BRL',
   });
+
+  function handleDeleteItem() {
+    console.log(props.id);
+    remove(props.id);
+  }
   return (
     <>
       <View style={styles.container}>
@@ -24,7 +29,7 @@ const CardCarrinho = (props) => {
             <Text style={styles.subTitleCard}>R$ {valorFormatado}</Text>
           </View>
           <View style={styles.buttonCard}>
-            <RectButton>
+            <RectButton onPress={() => remove(props.id)}>
               <Image source={props.icon} style={styles.imgButtonCard} />
             </RectButton>
           </View>

@@ -37,24 +37,32 @@ const Carrinho = () => {
           secondImg={homeRun}
           nameNavigateSecondImg="Home"
         />
-        <ScrollView style={{minHeight: 630}}>
-          {global.produtos === '' ? <Text>Carrinho Vazio</Text> : null}
-          {global.produtos.map((produto, index) => {
-            return (
-              <CardCarrinho
-                key={index}
-                fristImg={Relogio}
-                title={produto.title}
-                subTitle={produto.valor}
-                icon={Cancel}
-              />
-            );
-          })}
-          <View style={styles.groupTotal}>
-            <Text style={styles.totalText}>Total: R$ {valorTotal}</Text>
-            <Text style={styles.totalText}>Itens: {itens}</Text>
+        {global.produtos.length === 0 ? (
+          <View style={styles.carrinhoVazio}>
+            <Text style={styles.carrinhoVazioText}>Carrinho Vazio</Text>
           </View>
-        </ScrollView>
+        ) : (
+          <ScrollView style={{minHeight: 630}}>
+            {global.produtos.map((produto, index) => {
+              return (
+                <CardCarrinho
+                  key={index}
+                  id={produto.id}
+                  fristImg={Relogio}
+                  title={produto.title}
+                  subTitle={produto.valor}
+                  icon={Cancel}
+                />
+              );
+            })}
+            <View style={styles.groupTotal}>
+              <Text style={styles.totalText}>
+                Total: R$ {global.totalValue}
+              </Text>
+              <Text style={styles.totalText}>Itens: {itens}</Text>
+            </View>
+          </ScrollView>
+        )}
       </ImageBackground>
     </View>
   );

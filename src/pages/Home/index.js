@@ -4,7 +4,7 @@ import {View, Text, ImageBackground, Image} from 'react-native';
 import styles from './styles';
 
 import BgImage from '../../../src/assets/img/inicio.png';
-import Logo from '../../../src/assets/img/logo.png';
+import Logo from '../../../src/assets/img/StartBuy.png';
 
 import {RectButton} from 'react-native-gesture-handler';
 
@@ -18,7 +18,7 @@ function Home({navigation}) {
         resizeMode="contain"
         source={BgImage}
         style={styles.content}>
-        <View>
+        <View style={styles.viewLogo}>
           <Image source={Logo} style={styles.logo} />
         </View>
         <View style={styles.viewTitle}>

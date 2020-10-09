@@ -62,6 +62,17 @@ const styles = StyleSheet.create({
     fontSize: 23,
     color: '#7159c1',
   },
+
+  carrinhoVazio: {
+    minHeight: 700,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  carrinhoVazioText: {
+    fontSize: 20,
+    color: '#7159C1',
+  },
 });
 
 export default styles;
