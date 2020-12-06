@@ -21,6 +21,7 @@ function Produtos() {
       title: 'Mi Band 4',
       valor: 150,
       icone: Proximo,
+      itens: 1,
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ function Produtos() {
       title: 'Mi Band 5',
       valor: 350,
       icone: Proximo,
+      itens: 1,
     },
   ];
 
@@ -48,6 +50,7 @@ function Produtos() {
               title={item.title}
               subTitle={item.valor}
               icon={item.icone}
+              itens={item.itens}
             />
           ))}
         </ScrollView>

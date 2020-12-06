@@ -14,13 +14,19 @@ export const GlobalStorage = ({children}) => {
 
   function add(produto) {
     const newProduto = produtos;
+    const newProdutoJson = newProduto[0];
+    if (newProdutoJson != undefined) {
+      if (produto.title === newProdutoJson.title) {
+        console.log('teste');
+      }
+    }
     newProduto.push(produto);
     setProdutos([...newProduto]);
+    console.log(produtos);
   }
 
   function remove(index) {
     let newProduto = produtos.filter((item) => item.id !== index);
-    console.log(newProduto);
     setProdutos([...newProduto]);
   }
 

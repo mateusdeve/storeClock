@@ -13,10 +13,6 @@ const CardCarrinho = (props) => {
     currency: 'BRL',
   });
 
-  function handleDeleteItem() {
-    console.log(props.id);
-    remove(props.id);
-  }
   return (
     <>
       <View style={styles.container}>

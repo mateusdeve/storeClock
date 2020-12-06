@@ -13,6 +13,7 @@ const Card = (props) => {
       id: props.id,
       title: props.title,
       subTitle: props.subTitle,
+      itens: props.itens,
     });
   }
 
